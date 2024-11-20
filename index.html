@@ -1,0 +1,399 @@
+<!DOCTYPE html> <!-- Define que el documento es HTML5 -->
+<html lang="es"> <!-- Especifica el idioma del contenido como español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Asegura que el diseño sea responsivo en dispositivos móviles -->
+    <title>Directorio de Especialistas</title> <!-- Título de la página que aparece en la pestaña del navegador -->
+    <link rel="stylesheet" href="css/styles.css"> <!-- Vincula el archivo de estilo CSS para el diseño de la página -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Define el icono que aparece en la pestaña del navegador -->
+    <link rel="stylesheet" href="iniciosesion.html">
+</head>
+<style>
+  /* Resetea el margen, el relleno y establece el modelo de caja en todo el documento */
+* {
+    margin: 0; /* Elimina el margen de todos los elementos */
+    padding: 0; /* Elimina el relleno de todos los elementos */
+    box-sizing: border-box; /* Establece el modelo de caja a border-box para manejar el tamaño total de los elementos */
+}
+
+/* Estilo general del body */
+body {
+    font-family: Arial, sans-serif; /* Establece la fuente principal como Arial */
+    background: linear-gradient(to right, #82c4bd, #6decca); /* Crea un fondo de gradiente de izquierda a derecha */
+    color: #fff; /* Establece el color del texto a blanco */
+    line-height: 1.6; /* Establece el alto de línea para mejorar la legibilidad */
+}
+
+/* Estilo del encabezado */
+header {
+    display: flex; /* Utiliza Flexbox para distribuir los elementos dentro del encabezado */
+    justify-content: space-between; /* Distribuye el contenido con espacio entre los elementos */
+    align-items: center; /* Alinea los elementos en el centro verticalmente */
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente negro */
+    padding: 20px; /* Añade espacio interno alrededor del contenido */
+}
+
+/* Estilo de la imagen del logo */
+header img {
+    max-height: 50px; /* Limita la altura máxima de la imagen del logo */
+}
+
+/* Estilo del menú de navegación */
+nav ul {
+    list-style: none; /* Elimina los puntos de las listas */
+    display: flex; /* Muestra los elementos de la lista en fila */
+}
+
+/* Espaciado entre los elementos del menú */
+nav ul li {
+    margin-left: 20px; /* Añade un margen a la izquierda de cada ítem */
+}
+
+/* Estilo de los enlaces de navegación */
+nav ul li a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: white; /* Establece el color del texto de los enlaces a blanco */
+    font-size: 18px; /* Define el tamaño de la fuente de los enlaces */
+    transition: color 0.3s ease; /* Aplica una transición suave en el cambio de color */
+}
+
+/* Estilo cuando el usuario pasa el cursor sobre un enlace */
+nav ul li a:hover {
+    color: #81c784; /* Cambia el color de los enlaces al pasar el mouse */
+}
+
+/* Estilo de la sección hero */
+.hero-section {
+    text-align: center; /* Centra el texto dentro de la sección */
+    padding: 50px 20px; /* Añade relleno en la parte superior e inferior, y a los lados */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('img/hero-image.jpg') no-repeat center center; /* Fondo de gradiente con una imagen de fondo */
+    background-size: cover; /* Asegura que la imagen de fondo cubra toda la sección */
+}
+
+/* Estilo del título principal en la sección hero */
+.hero-section h1 {
+    font-size: 3rem; /* Establece un tamaño grande para el título */
+    margin-bottom: 10px; /* Añade un margen inferior para separar el título del texto */
+}
+
+/* Estilo del texto en la sección hero */
+.hero-section p {
+    font-size: 1.2rem; /* Establece el tamaño de la fuente del párrafo */
+    margin-bottom: 20px; /* Añade un margen inferior al párrafo */
+}
+
+/* Estilo del botón en la sección hero */
+.hero-section .btn-primary {
+    padding: 10px 20px; /* Añade relleno dentro del botón */
+    background: #1a1d19; /* Establece el fondo del botón a un color oscuro */
+    border: none; /* Elimina cualquier borde alrededor del botón */
+    color: white; /* Establece el color del texto a blanco */
+    font-size: 16px; /* Define el tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Aplica una transición en el cambio de color de fondo */
+}
+
+/* Estilo cuando el usuario pasa el cursor sobre el botón */
+.hero-section .btn-primary:hover {
+    background: #4f80d4; /* Cambia el fondo del botón al pasar el cursor */
+}
+
+/* Estilos de la sección de servicios */
+.services-section {
+    padding: 40px; /* Añade espacio interno */
+    background-color: #4caf50; /* Establece un fondo de color verde */
+    text-align: center; /* Centra el texto */
+}
+
+/* Estilo de la cuadrícula de servicios */
+.services-grid {
+    display: flex; /* Utiliza Flexbox para distribuir los elementos */
+    justify-content: space-around; /* Distribuye los servicios de manera uniforme */
+    margin-top: 20px; /* Añade un margen superior para separar de los elementos previos */
+}
+
+/* Estilos adicionales para la sección de servicios */
+.services-section {
+    padding: 40px; /* Añade relleno en toda la sección */
+    background-color: #ffffff; /* Cambia el fondo a blanco */
+    text-align: center; /* Centra el texto */
+    color: black; /* Establece el color del texto a negro */
+}
+
+/* Estilo de la cuadrícula de servicios usando Grid */
+.services-grid {
+    display: grid; /* Utiliza Grid para distribuir los elementos */
+    grid-template-columns: repeat(3, 1fr); /* Define tres columnas para la cuadrícula */
+    gap: 20px; /* Añade espacio entre las tarjetas de servicio */
+    margin-top: 20px; /* Añade un margen superior */
+}
+
+/* Estilo de cada servicio individual */
+.service {
+    background: #208a7e; /* Establece un fondo de color verde azulado */
+    padding: 20px; /* Añade relleno dentro de cada tarjeta de servicio */
+    border-radius: 10px; /* Redondea las esquinas de las tarjetas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Añade sombra a las tarjetas */
+}
+
+/* Estilo de las imágenes dentro de las tarjetas de servicio */
+.service img {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho de la tarjeta */
+    border-radius: 10px; /* Redondea las esquinas de las imágenes */
+}
+
+/* Estilo del título dentro de cada tarjeta de servicio */
+.service h3 {
+    margin-top: 10px; /* Añade un margen superior */
+    font-size: 1.5rem; /* Establece un tamaño grande para el título */
+    color: #fff; /* Establece el color del texto a blanco */
+}
+
+/* Estilo de los enlaces dentro de las tarjetas de servicio */
+.service a {
+    display: inline-block; /* Hace que los enlaces se comporten como bloques en línea */
+    margin-top: 10px; /* Añade un margen superior */
+    color: #0c0e0c; /* Establece el color del enlace */
+    text-decoration: none; /* Elimina el subrayado */
+    font-weight: bold; /* Establece el peso de la fuente como negrita */
+}
+
+/* Estilo cuando el usuario pasa el cursor sobre un enlace dentro de los servicios */
+.service a:hover {
+    text-decoration: underline; /* Añade un subrayado al pasar el cursor */
+}
+
+/* Estilos responsivos */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* Cambia a dos columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr; /* Cambia a una columna en pantallas pequeñas */
+    }
+}
+
+/* Estilos de la sección de contacto */
+.contact-section {
+    background: linear-gradient(to right, #82c4bd, #6decca); /* Fondo de gradiente */
+    padding: 40px; /* Añade relleno */
+    text-align: center; /* Centra el texto */
+}
+
+/* Estilo del formulario de contacto */
+.contact-section form {
+    max-width: 600px; /* Establece el ancho máximo del formulario */
+    margin: 0 auto; /* Centra el formulario en la página */
+    background: #51957d; /* Establece el fondo del formulario */
+    padding: 20px; /* Añade relleno dentro del formulario */
+    border-radius: 10px; /* Redondea las esquinas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Añade sombra al formulario */
+}
+
+/* Estilo de las etiquetas del formulario */
+.contact-section label {
+    display: block; /* Hace que las etiquetas se comporten como bloques */
+    margin-bottom: 10px; /* Añade margen debajo de las etiquetas */
+    font-size: 1rem; /* Establece un tamaño de fuente para las etiquetas */
+}
+
+/* Estilo de los campos de entrada y área de texto */
+.contact-section input,
+.contact-section textarea {
+    width: 100%; /* Hace que los campos ocupen todo el ancho */
+    padding: 10px; /* Añade relleno dentro de los campos */
+    margin-bottom: 20px; /* Añade un margen inferior */
+    border: 1px solid #0e160f; /* Define un borde oscuro */
+    border-radius: 5px; /* Redondea las esquinas */
+    background: #ffffff; /* Establece un fondo blanco */
+    color: #000000; /* Establece el color del texto a negro */
+}
+
+/* Estilo del botón de envío */
+.contact-section input[type="submit"] {
+    background: #a9c2c8; /* Fondo gris para el botón */
+    border: none; /* Elimina el borde del botón */
+    color: rgb(21, 19, 19); /* Establece el color del texto */
+    cursor: pointer; /* Cambia el cursor a puntero */
+    transition: background-color 0.3s ease; /* Aplica una transición al color de fondo */
+}
+
+/* Estilo cuando el usuario pasa el cursor sobre el botón de envío */
+.contact-section input[type="submit"]:hover {
+    background: #5cd26a; /* Cambia el color de fondo al pasar el cursor */
+}
+
+/* Estilo del pie de página */
+footer {
+    text-align: center; /* Centra el texto del pie de página */
+    padding: 20px; /* Añade relleno */
+    background-color: #12335f; /* Establece el fondo del pie de página */
+}
+
+/* Estilos para ayuda inmediata */
+#ayuda-inmediata {
+    color: black; /* Establece el color del texto a negro */
+}
+
+</style>
+<body> <!-- Comienza el contenido del cuerpo de la página -->
+    <header class="header-content"> <!-- Contenedor para el encabezado de la página -->
+        <img src="img/logo.jpg" alt="Logo Directorio de Especialistas" height="50px" class="logo"> <!-- Logo de la página con texto alternativo -->
+        <nav> <!-- Contenedor para la navegación -->
+            <ul> <!-- Lista de enlaces de navegación -->
+                <li><a href="#inicio">Inicio</a></li> <!-- Enlace a la sección "inicio" de la misma página -->
+                <li><a href="#servicios">Servicios</a></li> <!-- Enlace a la sección "servicios" de la misma página -->
+                <li><a href="contactos.html">Contacto</a></li> <!-- Enlace a la página "contactos.html" -->
+            </ul>
+        </nav> <!-- Fin de la navegación -->
+    </header> <!-- Fin del encabezado -->
+    
+    <section id="inicio" class="hero-section"> <!-- Sección destacada de inicio -->
+        <h1>Directorio de Especialistas</h1> <!-- Título principal -->
+        <p>Encuentra profesionales en salud mental que te pueden ayudar.</p> <!-- Descripción introductoria -->
+        <button class="btn-primary" id="learn-more">Aprender Más</button> <!-- Botón para aprender más sobre el sitio -->
+    </section> <!-- Fin de la sección de inicio -->
+
+    <section id="servicios" class="services-section"> <!-- Sección de servicios -->
+        <h2>Nuestros Servicios</h2> <!-- Título de la sección -->
+        <div class="services-grid"> <!-- Contenedor para la grilla de servicios -->
+            <!-- Servicios Existentes -->
+            <article class="service"> <!-- Artículo para un servicio -->
+                <img src="https://img.freepik.com/vector-gratis/plantilla-pagina-destino-salud-mental-plana_23-2149050120.jpg?t=st=1732130979~exp=1732134579~hmac=f11af3306b19d11cfbd3637790b6e6ff33bc0079e48b5ee207d97e5bc750048e&w=1060" alt="Consulta Virtual"> <!-- Imagen del servicio -->
+                <h3>Consulta Virtual</h3> <!-- Título del servicio -->
+                <p>Accede a sesiones en línea con especialistas certificados.</p> <!-- Descripción del servicio -->
+                <a href="consultasvirtuales.html">Consulta Virtual</a> <!-- Enlace al servicio específico -->
+            </article>
+            <article class="service">
+                <img src="img/foto2.jpg" alt="Diagnósticos Profesionales">
+                <h3>Diagnósticos Profesionales</h3>
+                <p>Obtén evaluaciones precisas de la mano de expertos.</p>
+                <a href="diagnosticos.html">Diagnósticos Profesionales</a>
+            </article>
+            <article class="service">
+                <img src="img/foto3.png" alt="Herramientas de Apoyo">
+                <h3>Herramientas de Apoyo</h3>
+                <p>Descarga guías y recursos para tu bienestar mental.</p>
+                <a href="herramientas.html">Herramientas de Apoyo</a>
+            </article>
+            <article class="service">
+                <img src="img/especialistas.jpg" alt="Especialistas">
+                <h3>Especialistas</h3>
+                <p>Contactos de especialistas para tu bienestar.</p>
+                <a href="Especialistas.html">Especialistas</a>
+            </article>
+            <article class="service">
+                <img src="img/terapia.jpeg" alt="Terapia en Grupo">
+                <h3>Terapia en Grupo</h3>
+                <p>Participa en sesiones grupales para fortalecer tu bienestar emocional.</p>
+                <a href="terapia.html">Terapia en Grupo</a>
+            </article>
+            <article class="service">
+                <img src="img/articulo.jpeg" alt="Articulos de Apoyo">
+                <h3>Articulos De Ayuda</h3>
+                <p>Guias de apoyo que te serviran en  tu proceso</p>
+                <a href="aticulos.html">Articulos de Apoyo</a>
+            </article>
+            <article class="service">
+                <img src="img/comparte.jpeg" alt="Charlas Educativas">
+                <h3>Comparte tu Historia</h3>
+                <p>Has que personas y especialistas conozcan tu historia</p>
+                <a href="comparte.html">Comparte Tu Historia</a>
+            </article>
+            <article class="service">
+                <img src="img/historias.jpeg" alt="Programas para Empresas">
+                <h3>Historias de Otros Usuarios</h3>
+                <p>Conoce situaciones personales</p>
+                <a href="historias.html">Historas de usuarios</a>
+            </article>
+            <article class="service">
+                <img src="img/formulario.png" alt="Atención Emergente">
+                <h3>Opinion personal</h3>
+                <p>Danos a conocer tu opinion</p>
+                <a href="formulario.html">opinion</a>
+            </article>
+        </div> <!-- Fin de la grilla de servicios -->
+    </section> <!-- Fin de la sección de servicios -->
+    
+    <section id="contacto" class="contact-section"> <!-- Sección de contacto -->
+        <h2>Contactar a un Especialista</h2> <!-- Título de la sección -->
+        <form id="contact-form" action="/enviar" method="post"> <!-- Formulario de contacto -->
+            <label for="nombre">Nombre (opcional):</label> <!-- Etiqueta para el campo de nombre -->
+            <input type="text" id="nombre" name="nombre"> <!-- Campo de entrada para nombre -->
+    
+            <label for="correo">Correo Electrónico:</label> <!-- Etiqueta para el campo de correo -->
+            <input type="email" id="correo" name="correo" required> <!-- Campo de entrada para correo, obligatorio -->
+    
+            <label for="mensaje">Describe tu situación:</label> <!-- Etiqueta para el campo de mensaje -->
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea> <!-- Campo de texto para mensaje, obligatorio -->
+    
+            <input type="submit" value="Enviar"> <!-- Botón para enviar el formulario -->
+        </form>
+        <div id="form-message"></div> <!-- Contenedor para mostrar el mensaje de confirmación o error -->
+    </section> <!-- Fin de la sección de contacto -->
+
+    <section id="ayuda-inmediata"> <!-- Sección para ofrecer ayuda inmediata en caso de crisis -->
+        <h2>¿Necesitas Ayuda Inmediata?</h2> <!-- Título de la sección -->
+        <p>Si sientes que estás en una crisis o necesitas hablar con alguien ahora, aquí hay recursos disponibles:</p> <!-- Descripción de la sección -->
+        <ul> <!-- Lista de recursos de ayuda inmediata -->
+            <li><strong>Línea Nacional de Salud Mental:</strong> <a href="tel:+1234567890">123-456-7890</a></li> <!-- Enlace telefónico para llamar a la línea de ayuda -->
+            <li><strong>Chat de Emergencia:</strong> <a href="/chat-emergencia">Iniciar Chat</a></li> <!-- Enlace para acceder a un chat de emergencia -->
+            <li><strong>Correo de Apoyo:</strong> <a href="mailto:apoyo@saludmental.com">apoyo@saludmental.com</a></li> <!-- Enlace para enviar un correo de apoyo -->
+        </ul>
+    </section> <!-- Fin de la sección de ayuda inmediata -->
+
+    <footer> <!-- Pie de página -->
+        <p>&copy; 2024 Directorio de Especialistas. Todos los derechos reservados.</p> <!-- Copyright del sitio -->
+    </footer> <!-- Fin del pie de página -->
+
+   <script>
+    // Agregar interactividad al botón de "Aprender Más"
+document.getElementById('learn-more').addEventListener('click', function() {
+    // Mostrar una alerta cuando el usuario hace clic en el botón
+    alert('¡Pronto tendrás más información sobre los especialistas y servicios!');
+});
+
+// Esperar a que el contenido de la página se haya cargado completamente
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtener el formulario por su ID
+    const form = document.getElementById('contact-form');
+    // Obtener el mensaje de estado por su ID
+    const formMessage = document.getElementById('form-message');
+
+    // Añadir un evento de envío al formulario
+    form.addEventListener('submit', function(event) {
+        // Prevenir el envío predeterminado del formulario (recarga de la página)
+        event.preventDefault();
+
+        // Obtener los valores ingresados en los campos del formulario
+        const nombre = document.getElementById('nombre').value;
+        const correo = document.getElementById('correo').value;
+        const mensaje = document.getElementById('mensaje').value;
+
+        // Validación básica para asegurarse de que los campos correo y mensaje no estén vacíos
+        if (!correo || !mensaje) {
+            // Mostrar un mensaje de error si faltan campos
+            formMessage.textContent = 'Por favor, completa todos los campos requeridos.';
+            formMessage.style.color = 'red'; // Cambiar el color del mensaje a rojo
+            return; // Salir de la función sin continuar con el proceso
+        }
+
+        // Simular el envío del formulario (en un caso real, aquí iría un envío AJAX)
+        // Aquí puedes hacer una solicitud para enviar los datos al servidor
+
+        // Mostrar un mensaje de éxito después de "enviar" el formulario
+        formMessage.textContent = '¡Tu mensaje ha sido enviado correctamente! Nos pondremos en contacto pronto.';
+        formMessage.style.color = 'black'; // Cambiar el color del mensaje a negro
+
+        // Limpiar los campos del formulario después del "envío"
+        form.reset();
+    });
+});
+
+   </script>
+</body>
+
+</html>
